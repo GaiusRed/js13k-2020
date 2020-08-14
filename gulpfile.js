@@ -1,5 +1,7 @@
 var gulp = require('gulp');
-var uglify = require('gulp-uglify');
+const uglifyes = require('uglify-es');
+const composer = require('gulp-uglify/composer');
+const uglify = composer(uglifyes, console);
 var htmlmin = require('gulp-htmlmin');
 var cssmin = require('gulp-cssmin');
 var concat = require('gulp-concat');

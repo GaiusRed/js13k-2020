@@ -1,7 +1,5 @@
 var gulp = require('gulp');
-const uglifyes = require('uglify-es');
-const composer = require('gulp-uglify/composer');
-const uglify = composer(uglifyes, console);
+const terser = require('gulp-terser');
 var htmlmin = require('gulp-htmlmin');
 var cssmin = require('gulp-cssmin');
 var concat = require('gulp-concat');
@@ -41,7 +39,7 @@ gulp.task('init', (done) => {
 gulp.task('build-js', (done) => {
 	return gulp.src('./src/js/**/*.js')
 	.pipe(concat('game.js'))
-	.pipe(uglify())
+	.pipe(terser())
 	.pipe(gulp.dest('./build/'));
 });
 
